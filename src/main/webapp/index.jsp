@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isErrorPage="true"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +8,8 @@
 </head>
 <body>
 <h2>Hello JSP</h2>
+Sorry following exception occured:<%= exception %>
+<% this.log("message 2"); %>
 Current Time: <%= java.util.Calendar.getInstance().getTime() %><br/>
 <%! int data = 50; %>
 <%= "Value of the variable is: " + data %><br/>
@@ -31,6 +33,7 @@ out.print("Welcome " + name);
 <%= "Welcome " + request.getParameter("uname") %>
 <%
 session.setAttribute("user", name);
+pageContext.setAttribute("user", name, PageContext.SESSION_SCOPE);
 %><br/>
 <a href="second.jsp">Second jsp page</a>
 </body>
