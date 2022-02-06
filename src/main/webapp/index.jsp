@@ -29,5 +29,9 @@ String name = request.getParameter("uname");
 out.print("Welcome " + name);
 %><br/>
 <%= "Welcome " + request.getParameter("uname") %>
+<%
+session.setAttribute("user", name);
+%><br/>
+<a href="second.jsp">Second jsp page</a>
 </body>
 </html>
