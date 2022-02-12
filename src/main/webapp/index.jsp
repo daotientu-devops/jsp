@@ -8,7 +8,14 @@
 </head>
 <body>
 <h2>Hello JSP</h2>
-Sorry following exception occured:<%= exception %>
+Sorry following exception occured:<%= exception %><br/>
+<form action="process.jsp">
+No1: <input type="number" name="n1"/>><br/>
+No2: <input type="number" name="n2"/>><br/>
+<input type="submit" value="divide"/>
+</form>
+<%@ page import="java.util.Date" %>
+Today is: <%= new Date() %><br/>
 <% this.log("message 2"); %>
 Current Time: <%= java.util.Calendar.getInstance().getTime() %><br/>
 <%! int data = 50; %>
