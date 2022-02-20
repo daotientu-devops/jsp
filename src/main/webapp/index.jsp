@@ -14,6 +14,7 @@ No1: <input type="number" name="n1"/>><br/>
 No2: <input type="number" name="n2"/>><br/>
 <input type="submit" value="divide"/>
 </form><br/>
+<jsp:include page="printdate.jsp"/>
 <jsp:forward page="printdate.jsp">
 	<jsp:param name="name" value="javatpoint.com"/>
 </jsp:forward>
