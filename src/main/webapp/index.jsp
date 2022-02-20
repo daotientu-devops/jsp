@@ -13,11 +13,13 @@ Sorry following exception occured:<%= exception %><br/>
 No1: <input type="number" name="n1"/>><br/>
 No2: <input type="number" name="n2"/>><br/>
 <input type="submit" value="divide"/>
-</form>
+</form><br/>
+<jsp:forward page="printdate.jsp">
+	<jsp:param name="name" value="javatpoint.com"/>
+</jsp:forward>
 <%@ page import="java.util.Date" %>
 Today is: <%= new Date() %><br/>
 <% this.log("message 2"); %>
-Current Time: <%= java.util.Calendar.getInstance().getTime() %><br/>
 <%! int data = 50; %>
 <%= "Value of the variable is: " + data %><br/>
 <%!
