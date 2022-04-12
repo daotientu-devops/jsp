@@ -1,37 +1,43 @@
+<%
+// Creating cookies for username, age and gender
+Cookie username = new Cookie("username", request.getParameter("username"));
+Cookie age = new Cookie("age", request.getParameter("age"));
+Cookie gender = new Cookie("gender", request.getParameter("gender"));
+// Setting expiry date
+username.setMaxAge(60*60*24);
+age.setMaxAge(60*60*24);
+gender.setMaxAge(60*60*24);
+// Add both the cookies in the response header
+response.addCookie(username);
+response.addCookie(age);
+response.addCookie(gender);
+%>
 <html>
 <head>
-<title>Result Register Form</title>
+	<title>Set cookies</title>
 </head>
 <body>
-<%
-String val = request.getParameter("isSubmitted");
-int isSubmitted = 0;
-if (val != null) {
-	isSubmitted = Integer.parseInt(val);
-	if (isSubmitted == 1) {
-		String firstName = request.getParameter("firstName");
-		String lastName = request.getParameter("lastName");
-		String email = request.getParameter("email");
-		out.println("<p>Hi " + firstName + " " + lastName + "!, your submitted email is " + email + ".</p>");
-	}
-} else {
-	out.println("Form is not allowed submitting!");
-}
-%>
-<% if (isSubmitted == 0) { %>
-<form action="handleUserRegister.jsp" method="post">
-    <fieldset>
-        <legend>User Information</legend>
-        <label for="fistName">First Name</label>
-        <input type="text" name="firstName" /> <br/>
-        <label for="lastName">Last Name</label>
-        <input type="text" name="lastName" /> <br/>
-        <label for="email">Email</label>
-        <input type="email" name="email" /> <br/>
-        <input type="checkbox" name="isSubmitted" value="1"/> Is submitted?<br/>       
-        <input type="submit" value="submit">
-    </fieldset>
-</form>
-<% } %>
+	<h2>-- Here we are setting cookies --</h2>
+	<ul>
+		<li>
+			<p>
+				<b>Username: </b>
+				<%= request.getParameter("username")  %>
+			</p>	
+		</li>
+		<li>
+			<p>
+				<b>Age: </b>
+				<%= request.getParameter("age")  %>
+			</p>	
+		</li>
+		<li>
+			<p>
+				<b>Gender: </b>
+				<%= request.getParameter("gender")  %>
+			</p>	
+		</li>
+	</ul>
+	<p><a href="display.jsp">Next page will read the cookies</a></p>
 </body>
 </html>
